@@ -8,6 +8,10 @@ import keras
 from keras.applications import vgg19
 from keras import backend as K
 
+import os
+
+os.environ['KMP_DUPLICATE_LIB_OK']='True'
+
 parser = argparse.ArgumentParser(description='Neural style transfer with Keras.')
 parser.add_argument('base_image_path', metavar='base', type=str,
                     help='Path to the image to transform.')
