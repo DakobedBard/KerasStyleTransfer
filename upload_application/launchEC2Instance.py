@@ -5,6 +5,15 @@ This file will define a function that will launch an EC2 instance..
 
 import boto3
 
+userdata= '''
+#!/usr/bin/env bash
+
+touch dumbass.txt
+
+'''
+
+
+
 def launchEC2():
 
     REGION = 'us-west-2' # region to launch instance.
@@ -42,6 +51,7 @@ def launchTestEC2():
         InstanceInitiatedShutdownBehavior='terminate',
         IamInstanceProfile={'Name':'S3fullaccess'},
         InstanceType=INSTANCE_TYPE,
-        SecurityGroupIds=['sg-03915a624fb5bf7bd']
+        SecurityGroupIds=['sg-03915a624fb5bf7bd'],
+        UserData = userdata
     )
 
