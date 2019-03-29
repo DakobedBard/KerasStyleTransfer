@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>Sightengine demo - Python and Flask</title>
+  <title>Neural Shit</title>
   <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/app.css') }}">
 </head>
 
@@ -12,16 +12,16 @@
   <h3> Upload Base Image </h3>
   <form action="/upload" method="post" enctype="multipart/form-data" >
       <span class="btn btn-default btn-file">
-        Browse <input type="file" name="image">
+        Browse <input type="file" name="base_image">
       </span>
+      <br><br>
 
-    <input type="submit" value="Upload your image" class="btn btn-primary">
-  </form>
-  <h3> Upload Style Image </h3>
-  <form action="/upload_style_file" method="post" enctype="multipart/form-data" >
       <span class="btn btn-default btn-file">
-        Browse <input type="file" name="image">
+        Browse <input type="file" name="style_image">
       </span>
+      <br><br>
+
+
 
     <input type="submit" value="Upload your image" class="btn btn-primary">
   </form>
