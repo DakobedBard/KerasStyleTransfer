@@ -4,7 +4,7 @@ import boto3
 import botocore
 from config import S3_KEY, S3_SECRET, S3_BUCKET
 
-app = Flask(__name__)
+application = app = Flask(__name__)
 
 UPLOAD_FOLDER = os.path.basename('uploads')
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
@@ -74,11 +74,13 @@ def upload_S3(filepath, bucket, filename):
     try:
         s3_resource.meta.client.upload_file(filepath,bucket,filename)    
 
-        print("I worked!")
-
     except Exception as e:
         # This is a catch all exception, edit this part to fit your needs.
         print("Something Happened: ", e)
+        return e
+    try:
+        os.remove(filepath)
+    except Exception as e:
         return e
     return "{}{}".format(app.config["S3_LOCATION"], filename)
 
