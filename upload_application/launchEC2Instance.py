@@ -7,6 +7,15 @@ import boto3
 
 userdata = '''#!/bin/bash
 git clone https://github.com/MathiasDarr/KerasStyleTransfer.git 
+source activate tensorflow_p36
+
+
+python KerasStyleTransfer/downloadS3.py 'base_image.jpg' base_image.jpg
+python KerasStyleTransfer/downloadS3.py 'style_image.jpg' style_image.jpg
+
+mkdir results
+
+python KerasStyleTransfer/styletransfer.py style_image.jpg base_image.jpg results/myimage
 
 '''
 
