@@ -5,14 +5,10 @@ This file will define a function that will launch an EC2 instance..
 
 import boto3
 
-userdata= '''
-#!/usr/bin/env bash
-
-touch dumbass.txt
+userdata = '''#!/bin/bash
+git clone https://github.com/MathiasDarr/KerasStyleTransfer.git 
 
 '''
-
-
 
 def launchEC2():
 
